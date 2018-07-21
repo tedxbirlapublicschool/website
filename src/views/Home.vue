@@ -21,11 +21,13 @@ export default {
 
 <style scoped>
 #herodiv {
-	background-image: url("../assets/skyline.jpeg");
+	background-image: url("../assets/skyline.jpg");
 	background-attachment: fixed;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+	background-color: red;
+	background-blend-mode: multiply;
 }
 
 .address {
