@@ -1,18 +1,49 @@
 <template>
-  <div class="home">
-    <img src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+	<div class="home">
+		<div id="herodiv" class="sectiondiv1 w3-center">
+			<div style="position: absolute; bottom: 0px; width:100%;" class="w3-center">
+				<p class="w3-text-white w3-center address">September 28<sup>th</sup>, 2018</p>
+				<p class="w3-text-white w3-center address">Basant Kumar Birla Auditorium</p>
+				<p class="w3-text-white w3-center address">Birla Public School, Doha-Qatar</p>
+			</div>
+		</div>
+		<div class="sectiondiv1">
+			<h1>TEDxBirlaPublicSchool</h1>
+		</div>
+	</div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-
 export default {
-  name: "home",
-  components: {
-    HelloWorld
-  }
+	name: "Home"
 };
 </script>
+
+<style scoped>
+#herodiv {
+	background-image: url("../assets/skyline.jpeg");
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.address {
+	font-size: 40px;
+	padding: 0px;
+	margin: 0px;
+}
+
+.sectiondiv1 {
+	padding: 0px;
+	margin: 0px;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+}
+.sectiondiv2 {
+	padding: 0px;
+	margin: 0px;
+	width: 100vw;
+}
+</style>
