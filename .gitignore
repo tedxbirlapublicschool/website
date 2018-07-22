@@ -23,7 +23,7 @@ firebase-debug.log*
 *.code-workspace*
 
 #rc files
-.browserslintrc
+.browserslistrc
 .eslintrc.js
 .postcssrc.js
 .prettierrc.js
