@@ -20,6 +20,7 @@ firebase-debug.log*
 *.njsproj
 *.sln
 *.sw*
+*.code-workspace*
 
 #rc files
 .browserslintrc
