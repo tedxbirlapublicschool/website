@@ -3,6 +3,7 @@
 		<div id="nav" class="w3-top w3-bar navbar w3-xlarge">
 			<div class="w3-bar-item menubar">
 				<router-link class="w3-bar-item w3-button" to="/" onclick="manualscrollfn(0);">Home</router-link>
+				<router-link class="w3-bar-item w3-button" to="/about" onclick="manualscrollfn(1);">About</router-link>
 				<router-link class="w3-bar-item w3-button" to="/events" onclick="manualscrollfn(1);">Events</router-link>
 				<router-link class="w3-bar-item w3-button" to="/speakers" onclick="manualscrollfn(1);">Speakers</router-link>
 				<router-link class="w3-bar-item w3-button" to="/blog" onclick="manualscrollfn(1);">Blog</router-link>
