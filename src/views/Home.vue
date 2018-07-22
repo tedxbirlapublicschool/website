@@ -7,15 +7,20 @@
 				<p class="w3-text-white w3-center address">Birla Public School, Doha-Qatar</p>
 			</div>
 		</div>
-		<div class="sectiondiv1">
+		<!-- <div class="sectiondiv1">
 			<h1>TEDxBirlaPublicSchool</h1>
-		</div>
+		</div> -->
+		<tedx></tedx>
 	</div>
 </template>
 
 <script>
+import Tedx from "@/components/Tedx.vue";
 export default {
-	name: "Home"
+	name: "Home",
+	components: {
+		Tedx
+	}
 };
 </script>
 
