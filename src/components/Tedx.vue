@@ -1,6 +1,6 @@
 <template>
     <div id = "tedx">
-        <h1>What is TEDx ?</h1>
+        <h1>What is <b>TEDx</b> ?</h1>
         <p>
         In the spirit of ideas worth spreading, TED has created a program called TEDx. TEDx is a 
         program of local, self-organized events that bring people together to share a TED-like 
@@ -19,9 +19,9 @@ export default {};
 
 <style scoped>
 @import "../minireset.min.css";
-@import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
 #tedx {
-	font-family: "Montserrat";
+	font-family: "Roboto";
 	font-size: 1.5em;
 	line-height: 2;
 	color: white;
@@ -37,5 +37,11 @@ export default {};
 		#1f1c18,
 		#8e0e00
 	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+	height: 300px;
+}
+h1 {
+	font-size: 1.5em;
+	font-weight: 700;
 }
 </style>

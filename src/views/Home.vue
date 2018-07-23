@@ -8,15 +8,18 @@
 			</div>
 		</div>
 		<tedx></tedx>
+		<Map></Map>
 	</div>
 </template>
 
 <script>
 import Tedx from "@/components/Tedx.vue";
+import Map from "@/components/Map.vue";
 export default {
 	name: "Home",
 	components: {
-		Tedx
+		Tedx,
+		Map
 	}
 };
 </script>
