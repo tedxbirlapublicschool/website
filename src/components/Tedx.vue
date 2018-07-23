@@ -37,11 +37,11 @@ export default {};
 		#1f1c18,
 		#8e0e00
 	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+	width: 100%;
 	height: 300px;
 }
 h1 {
 	font-size: 1.5em;
-	font-weight: 700;
+	font-weight: 400;
 }
 </style>
