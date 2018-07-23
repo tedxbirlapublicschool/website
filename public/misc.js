@@ -12,6 +12,11 @@ function scrollfn() {
 		logoimg.style.marginTop = "10px";
 		logoimg.style.marginBottom = "10px";
 		navbar.style.backgroundColor = "rgba(29,29,29,1)";
+		var paddingTop = document.getElementById("nav").clientHeight;
+		var division = document.getElementById(
+			window.location.pathname.substr(1)
+		);
+		division.style.marginTop = paddingTop + "px";
 	}
 	window.addEventListener("scroll", function() {
 		if (window.location.pathname == "/") {
@@ -46,7 +51,14 @@ function manualscrollfn(direction) {
 		$("#navbarlogo").animate(
 			{ width: "350px", marginTop: "10px" },
 			"slow",
-			"swing"
+			"swing",
+			function() {
+				var paddingTop = document.getElementById("nav").clientHeight;
+				var division = document.getElementById(
+					window.location.pathname.substr(1)
+				);
+				division.style.marginTop = paddingTop + "px";
+			}
 		);
 		$("#nav").animate(
 			{ backgroundColor: "rgba(29,29,29,1)" },
