@@ -7,9 +7,6 @@
 				<p class="w3-text-white w3-center address">Birla Public School, Doha-Qatar</p>
 			</div>
 		</div>
-		<!-- <div class="sectiondiv1">
-			<h1>TEDxBirlaPublicSchool</h1>
-		</div> -->
 		<tedx></tedx>
 	</div>
 </template>
