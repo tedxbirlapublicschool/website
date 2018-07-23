@@ -19,24 +19,28 @@ export default {
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
 @import "../minireset.min.css";
+@import url("https://fonts.googleapis.com/css?family=Do+Hyeon");
+@import url("https://fonts.googleapis.com/css?family=Anton");
+
 #about {
-	margin-top: 0px;
 	overflow: hidden;
 	color: white;
 	font-size: 1.5em;
 }
 #app {
-	background: #870000; /* fallback for old browsers */
-	background: -webkit-linear-gradient(
-		to left,
-		#190a05,
-		#870000
-	); /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(
-		to left,
-		#190a05,
-		#870000
-	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+body {
+	font-family: "Roboto";
+	background-color: black;
+}
+h1 {
+	font-family: "Do Hyeon";
+	letter-spacing: 2px;
+	color: red;
+	font-size: 2em;
+	font-weight: bolder;
+	line-height: 2.5em;
 }
 </style>
