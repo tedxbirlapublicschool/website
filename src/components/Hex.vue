@@ -1,5 +1,5 @@
 <template>
-<div class = "container-grid">
+<div class = "hexagon">
 <div class="container">
   <img src = "../assets/HexPics/am.png" alt="Avatar" class="image">
   <div class="middle">
@@ -40,18 +40,15 @@ export default {
 
 <style>
 @import "../minireset.min.css";
-.container-grid {
-	display: grid;
-	grid-template-columns: 500px 500px 500px;
-	grid-template-rows: 300px 300px 300px;
-	grid-column-gap: 0px;
-	grid-row-gap: 0px;
+.hexagon {
+	display: flex;
+
 	background-color: black;
 }
 .container {
 	position: relative;
 	width: 50%;
-	margin: 0px;
+	margin: 3px;
 }
 
 .image {
@@ -82,12 +79,16 @@ export default {
 	opacity: 1;
 }
 
-.button {
+.text {
 	background-color: white;
 	color: black;
-	font-size: 16px;
-	padding: 15x 15px;
+	font-size: 1.4em;
+	width: 150px;
+	padding: 0px 0px;
 	border: 0px;
-	border-radius: 30%;
+
+	-webkit-border-radius: 28;
+	-moz-border-radius: 28;
+	border-radius: 28px;
 }
 </style>

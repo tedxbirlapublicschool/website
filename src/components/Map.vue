@@ -8,10 +8,13 @@
 </template>
 
 <style scoped>
+@import "../minireset.min.css";
 #map {
-	background-color: black;
+	padding: 0px;
+	background-color: #ff103d;
 }
 iframe {
+	margin: 0px;
 	overflow: hidden;
 	max-width: 100%;
 	width: 100%;
