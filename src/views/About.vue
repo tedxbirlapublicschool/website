@@ -21,7 +21,8 @@ The annual TED Conference takes place each spring in Vancouver, British Columbia
 </template>
 <script>
 export default {
-	name: "About"
+	name: "About",
+	title: "About"
 };
 </script>
 

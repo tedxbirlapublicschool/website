@@ -19,6 +19,7 @@ import Map from "@/components/Map.vue";
 import Hex from "@/components/Hex.vue";
 export default {
 	name: "Home",
+	title: "Home",
 	components: {
 		Tedx,
 		Map,
