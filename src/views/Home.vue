@@ -9,17 +9,20 @@
 		</div>
 		<tedx></tedx>
 		<Map></Map>
+		<hex></hex>
 	</div>
 </template>
 
 <script>
 import Tedx from "@/components/Tedx.vue";
 import Map from "@/components/Map.vue";
+import Hex from "@/components/Hex.vue";
 export default {
 	name: "Home",
 	components: {
 		Tedx,
-		Map
+		Map,
+		Hex
 	}
 };
 </script>
