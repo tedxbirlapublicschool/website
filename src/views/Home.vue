@@ -9,7 +9,7 @@
 		</div>
 		<tedx></tedx>
 		<Map></Map>
-		<hex></hex>
+		<Hex></Hex>
 	</div>
 </template>
 
