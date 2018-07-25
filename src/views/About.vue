@@ -41,11 +41,12 @@ export default {
 	color: black;
 	font-size: 2em;
 	font-weight: 300;
-}
-body {
-	font-family: "Roboto";
+	height: 100%;
+	width: 100%;
 	background-color: #ff103d;
+	font-family: "Roboto";
 }
+
 h1 {
 	font-family: "Do Hyeon";
 	letter-spacing: 2px;
