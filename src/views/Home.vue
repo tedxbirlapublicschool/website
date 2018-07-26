@@ -8,8 +8,8 @@
 			</div>
 		</div>
 		<tedx></tedx>
-		<Map></Map>
 		<Hex></Hex>
+		<Map></Map>
 	</div>
 </template>
 
