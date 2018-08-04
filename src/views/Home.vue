@@ -24,6 +24,9 @@ export default {
 		Tedx,
 		Map,
 		Hex
+	},
+	mounted: function() {
+		trigger("home");
 	}
 };
 </script>
