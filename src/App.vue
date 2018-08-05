@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import trigger from "./index";
 export default {
 	name: "App",
 	mounted: function() {
@@ -27,10 +28,9 @@ export default {
 };
 </script>
 
-
 <style>
 @import "w3.css";
-
+@import url("https://use.fontawesome.com/releases/v5.2.0/css/all.css");
 #app {
 	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
 		"Lucida Sans", Arial, sans-serif;
