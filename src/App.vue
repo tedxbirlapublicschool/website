@@ -19,7 +19,6 @@
 </template>
 
 <script>
-import trigger from "./index";
 export default {
 	name: "App",
 	mounted: function() {
@@ -40,7 +39,7 @@ export default {
 }
 
 .navbar {
-	background-color: rgba(29, 29, 29, 0);
+	background-color: #1d1d1d;
 	color: white;
 }
 
