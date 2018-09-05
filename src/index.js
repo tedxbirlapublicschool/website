@@ -1,34 +1,36 @@
+import Velocity from "velocity-animate";
+
 function trigger(key) {
 	if (key == "initialLoad") {
-		scrollfn();
+		return scrollfn();
 	}
 	if (key == "home") {
-		manualscrollfn(0);
+		return manualscrollfn(0);
 	}
 	if (key == "about") {
 		manualscrollfn(1);
-		padding("about");
+		return padding("about");
 	}
 	if (key == "events") {
 		manualscrollfn(1);
-		padding("events");
+		return padding("events");
 	}
 	if (key == "speakers") {
 		manualscrollfn(1);
 		background();
-		padding("speakers");
+		return padding("speakers");
 	}
 	if (key == "blog") {
 		manualscrollfn(1);
-		padding("blog");
+		return padding("blog");
 	}
 	if (key == "partners") {
 		manualscrollfn(1);
-		padding("partners");
+		return padding("partners");
 	}
 	if (key == "team") {
 		manualscrollfn(1);
-		padding("team");
+		return padding("team");
 	}
 }
 function scrollfn() {
@@ -45,7 +47,7 @@ function scrollfn() {
 		logoimg.style.marginBottom = "10px";
 		navbar.style.backgroundColor = "rgba(29,29,29,1)";
 	}
-	window.addEventListener("scroll", function() {
+	return window.addEventListener("scroll", function() {
 		if (window.location.pathname == "/") {
 			var scrollvalue = Math.floor(window.scrollY);
 			var percent = scrollvalue / 200;
@@ -228,7 +230,7 @@ function background() {
 	}
 	loop();
 
-	window.addEventListener("resize", function() {
+	return window.addEventListener("resize", function() {
 		w = dotty.width = window.innerWidth;
 		h = dotty.height = window.innerHeight;
 		sum = w + h;
@@ -246,6 +248,8 @@ function background() {
 }
 function padding(division) {
 	var paddingTop = document.getElementById("nav").clientHeight;
-	var division = document.getElementById(division);
+	division = document.getElementById(division);
 	division.style.marginTop = paddingTop + "px";
 }
+
+export { trigger, scrollfn, manualscrollfn, background, padding };

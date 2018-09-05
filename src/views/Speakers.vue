@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import { trigger } from "@/index.js";
 import Speaker from "@/components/Speaker.vue";
 export default {
 	name: "Speakers",
@@ -29,7 +30,6 @@ export default {
 </script>
 
 <style scoped>
-@import "../minireset.min.css";
 .speakers {
 	margin-top: 0px;
 }

@@ -17,6 +17,7 @@
     </div>
 </template>
 <script>
+import { trigger } from "@/index.js";
 export default {
 	name: "About",
 	title: "About",

@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import { trigger } from "./index";
 export default {
 	name: "App",
 	mounted: function() {
@@ -36,6 +37,7 @@ export default {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;
+	display:none;
 }
 
 .navbar {

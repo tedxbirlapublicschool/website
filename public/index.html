@@ -5,6 +5,8 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<link rel="stylesheet" href="please-wait.css"/>
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 		<meta name="msapplication-TileColor" content="#ad0000">
 		<meta name="msapplication-TileImage" content="/ico/ms-icon-144x144.png">
 		<meta name="theme-color" content="#ad0000">
@@ -23,8 +25,6 @@
 		<link rel="icon" type="image/png" sizes="96x96" href="/ico/favicon-96x96.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="/ico/favicon-16x16.png">
 		<link rel="manifest" href="/manifest.json">
-		<script src="velocity.min.js"></script>
-		<script src="index.js"></script>
 		<title>TEDxBirlaPublicSchool</title>
 	</head>
 
@@ -32,6 +32,19 @@
 		<noscript>
 			<strong>We're sorry but app doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
 		</noscript>
+
+		<div id="particles-background" class="vertical-centered-box"></div>
+		<div id="particles-foreground" class="vertical-centered-box"></div>
+
+		<div id="particles-center" class="vertical-centered-box">
+			<div class="content">
+				<div class="loader-circle"></div>
+				<div class="loader-line-mask">
+					<div class="loader-line"></div>
+				</div>
+			</div>
+		</div>
+		<script src="please-wait.js"></script>
 		<div id="main"></div>
 		<!-- built files will be auto injected -->
 	</body>
