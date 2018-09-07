@@ -4,7 +4,7 @@ import Home from "./views/Home.vue";
 import About from "./views/About.vue";
 import Events from "./views/Events.vue";
 import Speakers from "./views/Speakers.vue";
-import Blog from "./views/Blog.vue";
+import Tickets from "./views/Tickets.vue";
 import Partners from "./views/Partners.vue";
 import Team from "./views/Team.vue";
 Vue.use(Router);
@@ -32,9 +32,9 @@ export default new Router({
 			component: Speakers
 		},
 		{
-			path: "/blog",
-			name: "blog",
-			component: Blog
+			path: "/team",
+			name: "team",
+			component: Team
 		},
 		{
 			path: "/partners",
@@ -42,9 +42,9 @@ export default new Router({
 			component: Partners
 		},
 		{
-			path: "/team",
-			name: "team",
-			component: Team
+			path: "/tickets",
+			name: "tickets",
+			component: Tickets
 		}
 	],
 	mode: "history"

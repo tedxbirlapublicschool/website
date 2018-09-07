@@ -6,9 +6,9 @@
 				<router-link class="w3-bar-item w3-button" to="/about">About</router-link>
 				<router-link class="w3-bar-item w3-button" to="/events">Events</router-link>
 				<router-link class="w3-bar-item w3-button" to="/speakers">Speakers</router-link>
-				<router-link class="w3-bar-item w3-button" to="/blog">Blog</router-link>
-				<router-link class="w3-bar-item w3-button" to="/partners">Partners</router-link>
 				<router-link class="w3-bar-item w3-button" to="/team">Team</router-link>
+				<router-link class="w3-bar-item w3-button" to="/partners">Partners</router-link>
+				<router-link class="w3-bar-item w3-button" to="/tickets">Tickets</router-link>
 			</div>
 			<div class="w3-bar-item w3-center">
 				<img id="navbarlogo" src="./assets/logo_singleLine_white.svg"/>
