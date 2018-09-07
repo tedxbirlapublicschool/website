@@ -9,28 +9,21 @@ function trigger(key) {
 	}
 	if (key == "about") {
 		manualscrollfn(key);
-		padding(key);
 	}
 	if (key == "events") {
 		manualscrollfn(key);
-		padding(key);
 	}
 	if (key == "speakers") {
 		manualscrollfn(key);
-		background();
-		padding(key);
 	}
 	if (key == "blog") {
 		manualscrollfn(key);
-		padding(key);
 	}
 	if (key == "partners") {
 		manualscrollfn(key);
-		padding(key);
 	}
 	if (key == "team") {
 		manualscrollfn(key);
-		padding(key);
 	}
 }
 function scrollfn() {
@@ -88,10 +81,18 @@ function manualscrollfn(flag) {
 			{ duration: "300" }
 		);
 		setTimeout(function() {
+			console.log(flag);
 			padding(flag);
+			if (flag == "speakers") {
+				background();
+			}
 		}, 300);
 		setTimeout(function() {
+			console.log(flag);
 			padding(flag);
+			if (flag == "speakers") {
+				background();
+			}
 		}, 500);
 	} else {
 		var newwidth = window.innerWidth - 50 + "px";

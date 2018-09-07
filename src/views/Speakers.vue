@@ -1,11 +1,12 @@
 <template>
-	<div id="speakers" v-if="dataReceived">
+	<div id="speakers">
 		<canvas id="dotty"></canvas>
-
+		<speaker v-if="dataReceived" v-for="sp in speakers" :key="sp.speakerId" :name="sp.speakerName" :content="sp.speakerIntro" :img="sp.speakerIcon" :align="sp.speakerId"></speaker>
 	</div>
 </template>
 
 <script>
+import Velocity from "velocity-animate";
 import { trigger } from "@/index.js";
 import Speaker from "@/components/Speaker.vue";
 import { firebase } from "@/firebase.js";
@@ -25,29 +26,31 @@ export default {
 			speakerNum: 0
 		};
 	},
-	created: function() {
-		this.fetchData();
-	},
-	watch: {
-		"$route": "fetchData"
-	},
-	methods: {
-		fetchData() {
-			var vm = this;
-			console.log("hi");
-			return firebase
-				.database()
-				.ref("/website/speakers")
-				.once("value")
-				.then(function(snapshot) {
-					var speakerData = snapshot.val();
+	beforeRouteEnter(to, from, next) {
+		console.log("hello1");
+		// getPost(to.params.id, (data) => {
+		// 	next(vm => vm.setData(data));
+		// })
+		return firebase
+			.database()
+			.ref("/website/speakers")
+			.once("value")
+			.then(function(snapshot) {
+				return snapshot.val();
+			})
+			.then(function(speakerData) {
+				next((vm) => {
 					vm.speakerNum = speakerData.totalNum;
-					// var i = 1;
-					// while (i <= speakerData.totalNum) {
-					// 	vm.speakers.push(speakerData[i]);
-					// 	vm.speakers[i].speakerId = i;
-					// 	i++;
-					// }
+					var i = 1;
+					while (i <= speakerData.totalNum) {
+						vm.speakers.push({
+							speakerId: i,
+							speakerName: speakerData[i].speakerName,
+							speakerIntro: speakerData[i].speakerIntro,
+							speakerIcon: speakerData[i].speakerIcon
+						});
+						i++;
+					}
 					document.getElementById("app").style.display = "block";
 					vm.dataReceived = "true";
 					Velocity(
@@ -66,7 +69,60 @@ export default {
 						{ duration: "800" }
 					);
 				});
-		}
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	},
+	beforeRouteUpdate(to, from, next) {
+		console.log("hello2");
+		this.data = null;
+		// getPost(to.params.id, (data) => {
+		// 	this.setData(data);
+		// 	next();
+		// })
+		return firebase
+			.database()
+			.ref("/website/speakers")
+			.once("value")
+			.then(function(snapshot) {
+				return snapshot.val();
+			})
+			.then(function(speakerData) {
+				var vm = this;
+				vm.speakerNum = speakerData.totalNum;
+				var i = 1;
+				while (i <= speakerData.totalNum) {
+					vm.speakers.push({
+						speakerId: i,
+						speakerName: speakerData[i].speakerName,
+						speakerIntro: speakerData[i].speakerIntro,
+						speakerIcon: speakerData[i].speakerIcon
+					});
+					i++;
+				}
+				document.getElementById("app").style.display = "block";
+				vm.dataReceived = "true";
+				Velocity(
+					document.getElementById("particles-foreground"),
+					{ opacity: 0 },
+					{ duration: "800" }
+				);
+				Velocity(
+					document.getElementById("particles-background"),
+					{ opacity: 0 },
+					{ duration: "800" }
+				);
+				Velocity(
+					document.getElementById("particles-center"),
+					{ opacity: 0 },
+					{ duration: "800" }
+				);
+				next();
+			})
+			.catch((err) => {
+				console.log(err);
+			});
 	}
 };
 </script>
