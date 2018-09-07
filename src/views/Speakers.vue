@@ -27,10 +27,6 @@ export default {
 		};
 	},
 	beforeRouteEnter(to, from, next) {
-		console.log("hello1");
-		// getPost(to.params.id, (data) => {
-		// 	next(vm => vm.setData(data));
-		// })
 		return firebase
 			.database()
 			.ref("/website/speakers")
@@ -75,12 +71,7 @@ export default {
 			});
 	},
 	beforeRouteUpdate(to, from, next) {
-		console.log("hello2");
 		this.data = null;
-		// getPost(to.params.id, (data) => {
-		// 	this.setData(data);
-		// 	next();
-		// })
 		return firebase
 			.database()
 			.ref("/website/speakers")
