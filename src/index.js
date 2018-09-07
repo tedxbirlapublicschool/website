@@ -2,35 +2,35 @@ import Velocity from "velocity-animate";
 
 function trigger(key) {
 	if (key == "initialLoad") {
-		return scrollfn();
+		scrollfn();
 	}
 	if (key == "home") {
-		return manualscrollfn(0);
+		manualscrollfn(key);
 	}
 	if (key == "about") {
-		manualscrollfn(1);
-		return padding("about");
+		manualscrollfn(key);
+		padding(key);
 	}
 	if (key == "events") {
-		manualscrollfn(1);
-		return padding("events");
+		manualscrollfn(key);
+		padding(key);
 	}
 	if (key == "speakers") {
-		manualscrollfn(1);
+		manualscrollfn(key);
 		background();
-		return padding("speakers");
+		padding(key);
 	}
 	if (key == "blog") {
-		manualscrollfn(1);
-		return padding("blog");
+		manualscrollfn(key);
+		padding(key);
 	}
 	if (key == "partners") {
-		manualscrollfn(1);
-		return padding("partners");
+		manualscrollfn(key);
+		padding(key);
 	}
 	if (key == "team") {
-		manualscrollfn(1);
-		return padding("team");
+		manualscrollfn(key);
+		padding(key);
 	}
 }
 function scrollfn() {
@@ -74,9 +74,9 @@ function scrollfn() {
 		}
 	});
 }
-function manualscrollfn(direction) {
+function manualscrollfn(flag) {
 	window.scrollTo(0, 0);
-	if (direction == 1) {
+	if (flag != "home") {
 		Velocity(
 			document.getElementById("navbarlogo"),
 			{ width: "350px", marginTop: "10px" },
@@ -88,12 +88,11 @@ function manualscrollfn(direction) {
 			{ duration: "300" }
 		);
 		setTimeout(function() {
-			var paddingTop = document.getElementById("nav").clientHeight;
-			var division = document.getElementById(
-				window.location.pathname.substring(1)
-			);
-			division.style.marginTop = paddingTop + "px";
+			padding(flag);
 		}, 300);
+		setTimeout(function() {
+			padding(flag);
+		}, 500);
 	} else {
 		var newwidth = window.innerWidth - 50 + "px";
 		var newheight = window.innerHeight / 5 - 50 + "px";

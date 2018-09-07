@@ -1,5 +1,5 @@
 <template>
-<div style="width: 100vw; background-color:black;text-align: center;">
+<div style="width: 100vw; background-color:#4a0000;text-align: center;">
 <div class = "hexagon">
 <div class="container">
   <img src = "../assets/HexPics/am.png" alt="Avatar" class="image">
@@ -45,19 +45,19 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 @import "../minireset.min.css";
 
 .hexagon {
 	display: flex;
-	background-color: black;
+	background-color: #4a0000;
 	margin: 0px;
 	width: 99vw;
 }
 
 .hexagon-2 {
 	display: flex;
-	background-color: black;
+	background-color: #4a0000;
 	margin-left: 245.5px;
 	width: 66vw;
 	left: 33%;

@@ -1,5 +1,5 @@
 <template>
-	<div v-if="align == 'true'" class="speaker">
+	<div v-if="align % 2 == 1" class="speaker">
 		<img :src="img"/>
 		<article>
 			<h1>{{name}}</h1>

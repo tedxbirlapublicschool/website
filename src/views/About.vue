@@ -1,5 +1,5 @@
 <template>
-    <div id="about">
+    <div id="about" v-if="dataReceived">
 	<div class="ted">
         <h1>About TED</h1>
         <p>
@@ -12,17 +12,70 @@
         <h1>About TEDx</h1>
         <p>
             In the spirit of ideas worth spreading, TEDx is a program of local, self-organized events that bring people together to share a TED-like experience. At a TEDx event, TED Talks video and live speakers combine to spark deep discussion and connection. These local, self-organized events are branded TEDx, where x = independently organized TED event. The TED Conference provides general guidance for the TEDx program, but individual TEDx events are self-organized. (Subject to certain rules and regulations.)
-         </p>
+        </p>
+		<br>
+		<h1>About TEDxBirlaPublicSchool</h1>
+		<p>{{tedxbpsText}}</p>
+		<br>
+		<Map :mapSrc="mapSrc"></Map>
 	</div>
     </div>
 </template>
 <script>
 import { trigger } from "@/index.js";
+import Map from "@/components/Map.vue";
+import { firebase } from "@/firebase.js";
 export default {
 	name: "About",
 	title: "About",
+	components: {
+		Map
+	},
 	mounted: function() {
 		trigger("about");
+	},
+	data: function(){
+		return {
+			dataReceived: null,
+			mapSrc: "",
+			tedxbpsText: ""
+		}
+	},
+	created: function() {
+		this.fetchData();
+	},
+	watch: {
+		"$route": "fetchData"
+	},
+	methods: {
+		fetchData() {
+			var vm = this;
+			return firebase
+				.database()
+				.ref("/website/about")
+				.on("value", function(snapshot){
+					var aboutData = snapshot.val();
+					vm.mapSrc = aboutData.mapSrc;
+					vm.tedxbpsText = aboutData.tedxbpsText;
+					vm.dataReceived = "true";
+					document.getElementById("app").style.display = "block";
+					Velocity(
+						document.getElementById("particles-foreground"),
+						{ opacity: 0 },
+						{ duration: "800" }
+					);
+					Velocity(
+						document.getElementById("particles-background"),
+						{ opacity: 0 },
+						{ duration: "800" }
+					);
+					Velocity(
+						document.getElementById("particles-center"),
+						{ opacity: 0 },
+						{ duration: "800" }
+					);
+				});
+		}
 	}
 };
 </script>
@@ -55,6 +108,5 @@ h1 {
 	color: white !important;
 	font-size: 4em;
 	font-weight: bolder;
-	line-height: 2.5em;
 }
 </style>

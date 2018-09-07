@@ -1,5 +1,5 @@
 <template>
-	<div class="home">
+	<div v-if="dataReceived" class="home">
 		<div id="herodiv" class="sectiondiv1 w3-center">
 			<div style="position: absolute; bottom: 0px; width:100%;" class="w3-center">
 				<p class="w3-text-white w3-center address">{{month}} {{date}}<sup>{{superscript}}</sup>, {{year}}</p>
@@ -8,8 +8,7 @@
 			</div>
 		</div>
 		<tedx></tedx>
-		<Hex></Hex>
-		<Map></Map>
+		<Timer :date="date" :month="monthNum" :year="year"></Timer>
 	</div>
 </template>
 
@@ -17,8 +16,7 @@
 import Velocity from "velocity-animate";
 import AOS from "aos";
 import Tedx from "@/components/Tedx.vue";
-import Map from "@/components/Map.vue";
-import Hex from "@/components/Hex.vue";
+import Timer from "@/components/Timer.vue";
 import { trigger } from "@/index.js";
 import { firebase } from "@/firebase.js";
 export default {
@@ -26,62 +24,73 @@ export default {
 	title: "Home",
 	components: {
 		Tedx,
-		Map,
-		Hex
+		Timer
 	},
 	mounted: function() {
 		trigger("home");
 	},
 	data: function() {
 		return {
-			date: "",
+			date: 0,
 			month: "",
-			year: "",
+			year: 0,
 			superscript: "",
 			loc1: "",
-			loc2: ""
+			loc2: "",
+			monthNum: 0,
+			dataReceived: null
 		};
 	},
-	beforeCreate: function() {
-		var vm = this;
-		return firebase
-			.database()
-			.ref("/website/home")
-			.on("value", function(snapshot) {
-				var homeData = snapshot.val();
-				vm.date = homeData.eventDate;
-				const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-				vm.month = monthNames[homeData.eventMonth -1];
-				vm.year = homeData.eventYear;
-				if ( homeData.eventDate == 1 || homeData.eventDate == 21 || homeData.eventDate == 31 ){
-					vm.superscript = "st";
-				} else if ( homeData.eventDate == 2 || homeData.eventDate == 22 ){
-					vm.superscript = "nd";
-				} else if ( homeData.eventDate == 3 || homeData.eventDate == 23 ){
-					vm.superscript = "rd";
-				} else {
-					vm.superscript = "th";
-				}
-				vm.loc1 = homeData.locLine1;
-				vm.loc2 = homeData.locLine2;
-				document.getElementById("app").style.display = "block";
-				AOS.init();
-				Velocity(
-					document.getElementById("particles-foreground"),
-					{ opacity: 0 },
-					{ duration: "1000" }
-				);
-				Velocity(
-					document.getElementById("particles-background"),
-					{ opacity: 0 },
-					{ duration: "1000" }
-				);
-				Velocity(
-					document.getElementById("particles-center"),
-					{ opacity: 0 },
-					{ duration: "1000" }
-				);
-			});
+	created: function() {
+		this.fetchData();
+	},
+	watch: {
+		"$route": "fetchData"
+	},
+	methods: {
+		fetchData() {
+			var vm = this;
+			return firebase
+				.database()
+				.ref("/website/home")
+				.on("value", function(snapshot) {
+					var homeData = snapshot.val();
+					vm.date = homeData.eventDate;
+					const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+					vm.monthNum = homeData.eventMonth;
+					vm.month = monthNames[homeData.eventMonth -1];
+					vm.year = homeData.eventYear;
+					if ( homeData.eventDate == 1 || homeData.eventDate == 21 || homeData.eventDate == 31 ){
+						vm.superscript = "st";
+					} else if ( homeData.eventDate == 2 || homeData.eventDate == 22 ){
+						vm.superscript = "nd";
+					} else if ( homeData.eventDate == 3 || homeData.eventDate == 23 ){
+						vm.superscript = "rd";
+					} else {
+						vm.superscript = "th";
+					}
+					vm.loc1 = homeData.locLine1;
+					vm.loc2 = homeData.locLine2;
+					document.getElementById("app").style.display = "block";
+					vm.dataReceived = "true";
+					AOS.init();
+					Velocity(
+						document.getElementById("particles-foreground"),
+						{ opacity: 0 },
+						{ duration: "800" }
+					);
+					Velocity(
+						document.getElementById("particles-background"),
+						{ opacity: 0 },
+						{ duration: "800" }
+					);
+					Velocity(
+						document.getElementById("particles-center"),
+						{ opacity: 0 },
+						{ duration: "800" }
+					);
+				});
+		}
 	}
 };
 </script>

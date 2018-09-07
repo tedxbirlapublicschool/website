@@ -1,37 +1,31 @@
 <template>
-<div id = "map">
-<div class="contact">
-<h1>Contact Us</h1>
-P.O. Box: 24686
-<br>
-Building No. 160,
-<br>
-Plot No. 78,
-<br>
-Zone No. / Area No. 56,
-<br>
-Street No. 1011, Street Name : Kanis,
-<br>
-Sub-area Name : Mesaimeer,
-<br>
-Opposite Religious Complex, Abu Hamour,
-<br>
-Doha – Qatar.
-<br>
-Phone: +974 44676701 / 2 / 3
-<br>
-Fax: +974 44676101
-<br>
-Email: bpsdoha@qatar.net.qa
-</div>
-<div class = "map">
-    <iframe
-  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAc0JyGCT5IZPRYNnl5nZJ2kk1OA4_deDE
-    &q=Birla+Public+School,+Doha" allowfullscreen>
-</iframe>
-</div>
-</div>
+	<div id = "map">
+		<div class="contact">
+			<h1>Where are we?</h1>
+			<p>
+				Birla Public School,
+				<br>
+				Ras Aboud Street,
+				<br>
+				Opposite Religious Complex, Abu Hamour
+				<br>
+				Sub-Area: Mesaimeer,
+				<br>
+				Doha, Qatar
+			</p>
+		</div>
+		<div class = "map">
+    		<iframe :src="mapSrc" allowfullscreen>
+			</iframe>
+		</div>
+	</div>
 </template>
+<script>
+export default {
+	name: "Map",
+	props: ["mapSrc"]
+}
+</script>
 
 <style scoped>
 @import "../minireset.min.css";
@@ -41,9 +35,6 @@ Email: bpsdoha@qatar.net.qa
 }
 .contact {
 	float: left;
-	color: white;
-	line-height: 2em;
-	font-size: 1.5em;
 	margin: 0px;
 }
 iframe {
@@ -54,12 +45,16 @@ iframe {
 	height: 100%;
 	border: 0;
 }
-.contact h1 {
-	font-size: 2em;
-	margin-bottom: 0.6em;
-}
 #map {
-	background-color: red;
+	background-color: black;
 	display: flex;
+}
+
+h1 {
+	font-family: "Do Hyeon";
+	letter-spacing: 2px;
+	color: white !important;
+	font-size: 4em;
+	font-weight: bolder;
 }
 </style>
