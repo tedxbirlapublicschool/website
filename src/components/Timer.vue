@@ -3,7 +3,7 @@
 		<div class="container"></div>
 		<div class="container2">
 			<h1>Time is running out!<br>Reserve your seats!</h1>
-			<button>Get Tickets</button>
+			<button v-on:click="qtickets">Get Tickets</button>
 		</div>
 	</div>
 </template>
@@ -11,6 +11,11 @@
 export default {
 	name: "Timer",
 	props: ["date", "month", "year"],
+	methods: {
+		qtickets() {
+			window.location = "https://www.q-tickets.com/eventslist.aspx";
+		}
+	},
 	mounted: function() {
 		var vm = this;
 		class Countdown {

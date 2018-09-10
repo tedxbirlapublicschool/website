@@ -16,7 +16,7 @@ function trigger(key) {
 	if (key == "speakers") {
 		manualscrollfn(key);
 	}
-	if (key == "blog") {
+	if (key == "tickets") {
 		manualscrollfn(key);
 	}
 	if (key == "partners") {
