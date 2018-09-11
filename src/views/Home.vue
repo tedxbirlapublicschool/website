@@ -97,7 +97,7 @@ export default {
 
 <style scoped>
 #herodiv {
-	background-image: url("../assets/skyline.jpg");
+	background-image: url("https://firebasestorage.googleapis.com/v0/b/tedxbps.appspot.com/o/website%2Fimages%2Fskyline.jpg?alt=media&token=d34a2dbb-a193-4ab9-b57e-ae1c1b193418");
 	background-attachment: fixed;
 	background-position: center;
 	background-repeat: no-repeat;

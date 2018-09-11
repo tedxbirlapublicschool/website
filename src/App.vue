@@ -11,7 +11,7 @@
 				<router-link class="w3-bar-item w3-button" to="/tickets">Tickets</router-link>
 			</div>
 			<div class="w3-bar-item w3-center">
-				<img id="navbarlogo" src="./assets/logo_singleLine_white.svg"/>
+				<img id="navbarlogo" src="https://firebasestorage.googleapis.com/v0/b/tedxbps.appspot.com/o/website%2Fimages%2Flogo_singleLine_white.svg?alt=media&token=ae5c61c2-41db-45d7-8885-8e9ace252284"/>
 			</div>
 		</div>
 		<router-view/>

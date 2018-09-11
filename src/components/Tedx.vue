@@ -31,7 +31,7 @@ export default {};
 	color: white;
 	padding: 5em;
 
-	background-image: url("../assets/skyline-blurred.jpg");
+	background-image: url("https://firebasestorage.googleapis.com/v0/b/tedxbps.appspot.com/o/website%2Fimages%2Fskyline-blurred.jpg?alt=media&token=c19fc055-ae9a-465b-b5dd-4bf99111b227");
 	background-attachment: fixed;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -40,7 +40,7 @@ export default {};
 	background-blend-mode: multiply;
 
 	width: 100vw;
-	height: 90vh;
+	min-height: 90vh;
 	margin-top: auto;
 	text-align: left;
 }
