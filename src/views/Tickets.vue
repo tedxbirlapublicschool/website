@@ -2,15 +2,13 @@
     <div id="tickets">
     <img src="../assets/tedxevent.jpeg">
 	<div class="content">
-		<section>
 		<p>
 			<ul>
 				<li>
-						<b>Adult (Standard) : QAR 70 *</b>
-
+					<b>Adult (Standard) : QAR 70 *</b>
 				</li>
 				<li>
-						<b>Student (Only discount):  QAR 40 ** </b>
+					<b>Student (Only discount):  QAR 40 ** </b>
 				</li>
 			</ul>
 		</p>
@@ -26,13 +24,9 @@
 					*Tickets are not refundable
 				</li>
 			</ul>
-		</p>	
-				
-				<button v-on:click="qtickets" class="w3-btn w3-round-xxlarge w3-blue" style="z-index:9999;">Get Tickets</button>
-				
-	</section>
+		</p>
+		<button v-on:click="qtickets" class="w3-btn w3-round-xxlarge w3-blue w3-center" style="z-index:9999;">Get Tickets</button>
 	</div>
-
     </div>
 </template>
 
@@ -42,24 +36,24 @@ import Velocity from "velocity-animate";
 export default {
 	name: "Tickets",
 	title: "Tickets",
-	mounted: function(){
+	mounted: function() {
 		trigger("tickets");
 		document.getElementById("app").style.display = "block";
-					Velocity(
-						document.getElementById("particles-foreground"),
-						{ opacity: 0 },
-						{ duration: "800" }
-					);
-					Velocity(
-						document.getElementById("particles-background"),
-						{ opacity: 0 },
-						{ duration: "800" }
-					);
-					Velocity(
-						document.getElementById("particles-center"),
-						{ opacity: 0 },
-						{ duration: "800" }
-					);
+		Velocity(
+			document.getElementById("particles-foreground"),
+			{ opacity: 0 },
+			{ duration: "800" }
+		);
+		Velocity(
+			document.getElementById("particles-background"),
+			{ opacity: 0 },
+			{ duration: "800" }
+		);
+		Velocity(
+			document.getElementById("particles-center"),
+			{ opacity: 0 },
+			{ duration: "800" }
+		);
 	},
 	methods: {
 		qtickets() {
@@ -74,23 +68,22 @@ export default {
 @import "../minireset.min.css";
 @import url("https://fonts.googleapis.com/css?family=Do+Hyeon");
 @import url("https://fonts.googleapis.com/css?family=Anton");
-@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url("https://fonts.googleapis.com/css?family=Lato");
 
 @import "../w3.css";
 #tickets {
 	height: 100vh;
 	display: grid;
-	grid-template-columns: 40% 60% ;
+	grid-template-columns: 40% 60%;
 	overflow: hidden;
-	min-width: 80vh;
+	width: 100vw;
 	background-color: #ff103d;
 	margin-right: 1em;
 }
 
-
 .content {
-	height: 100% ;
-	font-family: 'Lato', sans-serif;
+	height: 100%;
+	font-family: "Lato", sans-serif;
 	font-size: 1.5em;
 	font-weight: 300;
 	text-align: center;
@@ -102,14 +95,13 @@ export default {
 }
 
 #cont {
-	font-family: 'Lato', sans-serif;
+	font-family: "Lato", sans-serif;
 
 	font-size: 0.8em;
 	font-weight: 300;
-	
+
 	vertical-align: bottom;
 	color: black;
-
 }
 
 h1 {
@@ -121,19 +113,10 @@ h1 {
 }
 
 img {
-	padding-top: 3em;
-	width: 700px;
-	height: 800px;
+	height: 100vh;
 }
 
-a {
-	font-size: 1.5em;
-	color: white;
-	text-decoration: none;
-	font-family: "Do Hyeon";
-}
-
-ul{
+ul {
 	list-style-type: none;
 }
 </style>

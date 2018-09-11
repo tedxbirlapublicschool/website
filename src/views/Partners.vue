@@ -8,6 +8,7 @@
 import { trigger } from "@/index.js";
 import Partner from "@/components/Partner.vue";
 import { firebase } from "@/firebase.js";
+import Velocity from "velocity-animate";
 export default {
 	name: "Partners",
 	title: "Partners",
@@ -37,10 +38,10 @@ export default {
 					vm.categoryNum = data.totalCategories;
 					var i = 1;
 					while (i <= data.totalCategories) {
-						var membersData = []
+						var membersData = [];
 						var j = 1;
 						var k = data[i].categoryMembers.membersNum;
-						while(j <= k){
+						while (j <= k) {
 							membersData.push({
 								memberId: j,
 								memberLogo: data[i].categoryMembers[j]
@@ -91,10 +92,10 @@ export default {
 				vm.categoryNum = data.totalCategories;
 				var i = 1;
 				while (i <= data.totalCategories) {
-					var membersData = []
+					var membersData = [];
 					var j = 1;
 					var k = data[i].categoryMembers.membersNum;
-					while(j <= k){
+					while (j <= k) {
 						membersData.push({
 							memberId: j,
 							memberLogo: data[i].categoryMembers[j]

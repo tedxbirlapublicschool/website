@@ -24,7 +24,7 @@
 export default {
 	name: "Map",
 	props: ["mapSrc"]
-}
+};
 </script>
 
 <style scoped>

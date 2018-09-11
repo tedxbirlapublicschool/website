@@ -45,7 +45,7 @@ export default {
 		this.fetchData();
 	},
 	watch: {
-		"$route": "fetchData"
+		$route: "fetchData"
 	},
 	methods: {
 		fetchData() {
@@ -56,15 +56,38 @@ export default {
 				.on("value", function(snapshot) {
 					var homeData = snapshot.val();
 					vm.date = homeData.eventDate;
-					const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+					const monthNames = [
+						"January",
+						"February",
+						"March",
+						"April",
+						"May",
+						"June",
+						"July",
+						"August",
+						"September",
+						"October",
+						"November",
+						"December"
+					];
 					vm.monthNum = homeData.eventMonth;
-					vm.month = monthNames[homeData.eventMonth -1];
+					vm.month = monthNames[homeData.eventMonth - 1];
 					vm.year = homeData.eventYear;
-					if ( homeData.eventDate == 1 || homeData.eventDate == 21 || homeData.eventDate == 31 ){
+					if (
+						homeData.eventDate == 1 ||
+						homeData.eventDate == 21 ||
+						homeData.eventDate == 31
+					) {
 						vm.superscript = "st";
-					} else if ( homeData.eventDate == 2 || homeData.eventDate == 22 ){
+					} else if (
+						homeData.eventDate == 2 ||
+						homeData.eventDate == 22
+					) {
 						vm.superscript = "nd";
-					} else if ( homeData.eventDate == 3 || homeData.eventDate == 23 ){
+					} else if (
+						homeData.eventDate == 3 ||
+						homeData.eventDate == 23
+					) {
 						vm.superscript = "rd";
 					} else {
 						vm.superscript = "th";

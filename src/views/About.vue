@@ -25,6 +25,7 @@
 import { trigger } from "@/index.js";
 import Map from "@/components/Map.vue";
 import { firebase } from "@/firebase.js";
+import Velocity from "velocity-animate";
 export default {
 	name: "About",
 	title: "About",
@@ -34,18 +35,18 @@ export default {
 	mounted: function() {
 		trigger("about");
 	},
-	data: function(){
+	data: function() {
 		return {
 			dataReceived: null,
 			mapSrc: "",
 			tedxbpsText: ""
-		}
+		};
 	},
 	created: function() {
 		this.fetchData();
 	},
 	watch: {
-		"$route": "fetchData"
+		$route: "fetchData"
 	},
 	methods: {
 		fetchData() {
@@ -53,7 +54,7 @@ export default {
 			return firebase
 				.database()
 				.ref("/website/about")
-				.on("value", function(snapshot){
+				.on("value", function(snapshot) {
 					var aboutData = snapshot.val();
 					vm.mapSrc = aboutData.mapSrc;
 					vm.tedxbpsText = aboutData.tedxbpsText;

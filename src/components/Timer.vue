@@ -152,7 +152,10 @@ export default {
 							expectedValues.second
 						);
 					}
-				} else if (typeof date === "number" || typeof date === "string") {
+				} else if (
+					typeof date === "number" ||
+					typeof date === "string"
+				) {
 					return new Date(date);
 				} else {
 					return new Date();
@@ -171,7 +174,10 @@ export default {
 					timeDiff;
 
 				usedIntervals = this.intervalsBySize.filter((item) => {
-					return this.options.outputFormat.split("|").indexOf(item) !== -1;
+					return (
+						this.options.outputFormat.split("|").indexOf(item) !==
+						-1
+					);
 				});
 
 				timeDiff = this.options.countdown
@@ -183,27 +189,39 @@ export default {
 					if (timeDiff > 0) {
 						switch (item) {
 							case "year":
-								value = Math.trunc(timeDiff / this.TIMESTAMP_YEAR);
+								value = Math.trunc(
+									timeDiff / this.TIMESTAMP_YEAR
+								);
 								timeDiff -= value * this.TIMESTAMP_YEAR;
 								break;
 							case "week":
-								value = Math.trunc(timeDiff / this.TIMESTAMP_WEEK);
+								value = Math.trunc(
+									timeDiff / this.TIMESTAMP_WEEK
+								);
 								timeDiff -= value * this.TIMESTAMP_WEEK;
 								break;
 							case "day":
-								value = Math.trunc(timeDiff / this.TIMESTAMP_DAY);
+								value = Math.trunc(
+									timeDiff / this.TIMESTAMP_DAY
+								);
 								timeDiff -= value * this.TIMESTAMP_DAY;
 								break;
 							case "hour":
-								value = Math.trunc(timeDiff / this.TIMESTAMP_HOUR);
+								value = Math.trunc(
+									timeDiff / this.TIMESTAMP_HOUR
+								);
 								timeDiff -= value * this.TIMESTAMP_HOUR;
 								break;
 							case "minute":
-								value = Math.trunc(timeDiff / this.TIMESTAMP_MINUTE);
+								value = Math.trunc(
+									timeDiff / this.TIMESTAMP_MINUTE
+								);
 								timeDiff -= value * this.TIMESTAMP_MINUTE;
 								break;
 							case "second":
-								value = Math.trunc(timeDiff / this.TIMESTAMP_SECOND);
+								value = Math.trunc(
+									timeDiff / this.TIMESTAMP_SECOND
+								);
 								timeDiff -= value * this.TIMESTAMP_SECOND;
 								break;
 						}
@@ -252,12 +270,7 @@ export default {
 							intervalDescription = `<div class="${
 								this.elementClassPrefix
 							}interval_basic_cont_description">
-														${
-																this.options
-																	.outputTranslation[
-																	intervalName
-																]
-															}
+														${this.options.outputTranslation[intervalName]}
 													</div>`;
 						data[intervalName].forEach((digit, index) => {
 							element += `<div class="${this._getDigitContCommonClassName()} ${this._getDigitContClassName(
@@ -267,7 +280,8 @@ export default {
 											</div>`;
 						});
 
-						code += element + "</div>" + intervalDescription + "</div>";
+						code +=
+							element + "</div>" + intervalDescription + "</div>";
 					}
 				}
 
@@ -283,26 +297,18 @@ export default {
 			 * @private
 			 */
 			_getDigitElementString(newDigit, lastDigit) {
-				return `<div class="${this.elementClassPrefix}digit_last_placeholder">
-								<div class="${
-									this.elementClassPrefix
-								}digit_last_placeholder_inner">
+				return `<div class="${
+					this.elementClassPrefix
+				}digit_last_placeholder">
+								<div class="${this.elementClassPrefix}digit_last_placeholder_inner">
 									${lastDigit}
 								</div>
 							</div>
-							<div class="${
-								this.elementClassPrefix
-							}digit_new_placeholder">${newDigit}</div>
-							<div class="${
-								this.elementClassPrefix
-							}digit_last_rotate">${lastDigit}</div>
+							<div class="${this.elementClassPrefix}digit_new_placeholder">${newDigit}</div>
+							<div class="${this.elementClassPrefix}digit_last_rotate">${lastDigit}</div>
 							<div class="${this.elementClassPrefix}digit_new_rotate">
-								<div class="${
-									this.elementClassPrefix
-								}digit_new_rotated">
-									<div class="${
-										this.elementClassPrefix
-									}digit_new_rotated_inner">
+								<div class="${this.elementClassPrefix}digit_new_rotated">
+									<div class="${this.elementClassPrefix}digit_new_rotated_inner">
 										${newDigit}
 									</div>
 								</div>
@@ -310,9 +316,9 @@ export default {
 			}
 
 			/**
-			* @param {{}} data
-			* @private
-			*/
+			 * @param {{}} data
+			 * @private
+			 */
 			_updateView(data) {
 				for (let intervalName in data) {
 					if (data.hasOwnProperty(intervalName)) {
@@ -338,12 +344,12 @@ export default {
 			}
 
 			/**
-			* @param {String} intervalName
-			* @param {String} index
-			*
-			* @returns {HTMLElement}
-			* @private
-			*/
+			 * @param {String} intervalName
+			 * @param {String} index
+			 *
+			 * @returns {HTMLElement}
+			 * @private
+			 */
 			_getDigitCont(intervalName, index) {
 				if (!this.digitConts[`${intervalName}_${index}`]) {
 					this.digitConts[
@@ -359,48 +365,53 @@ export default {
 			}
 
 			/**
-			* @param {String} intervalName
-			*
-			* @returns {String}
-			* @private
-			*/
+			 * @param {String} intervalName
+			 *
+			 * @returns {String}
+			 * @private
+			 */
 			_getIntervalContClassName(intervalName) {
-				return `${this.elementClassPrefix}interval_cont_${intervalName}`;
+				return `${
+					this.elementClassPrefix
+				}interval_cont_${intervalName}`;
 			}
 
 			/**
-			* @returns {String}
-			* @private
-			*/
+			 * @returns {String}
+			 * @private
+			 */
 			_getIntervalContCommonClassName() {
 				return `${this.elementClassPrefix}interval_cont`;
 			}
 
 			/**
-			* @param {String} index
-			*
-			* @returns {String}
-			* @private
-			*/
+			 * @param {String} index
+			 *
+			 * @returns {String}
+			 * @private
+			 */
 			_getDigitContClassName(index) {
 				return `${this.elementClassPrefix}digit_cont_${index}`;
 			}
 
 			/**
-			* @returns {String}
-			* @private
-			*/
+			 * @returns {String}
+			 * @private
+			 */
 			_getDigitContCommonClassName() {
 				return `${this.elementClassPrefix}digit_cont`;
 			}
 
 			/**
-			* @param {{}} options
-			* @param {{}} userOptions
-			*/
+			 * @param {{}} options
+			 * @param {{}} userOptions
+			 */
 			_assignOptions(options, userOptions) {
 				for (let i in options) {
-					if (options.hasOwnProperty(i) && userOptions.hasOwnProperty(i)) {
+					if (
+						options.hasOwnProperty(i) &&
+						userOptions.hasOwnProperty(i)
+					) {
 						if (
 							options[i] !== null &&
 							typeof options[i] === "object" &&
@@ -415,7 +426,7 @@ export default {
 			}
 		}
 		var cd = new Countdown({
-			cont: document.querySelector('.container'),
+			cont: document.querySelector(".container"),
 			countdown: true,
 			date: {
 				year: vm.year,
@@ -425,10 +436,10 @@ export default {
 				minute: 0,
 				second: 0
 			},
-			endCallback: function(){
+			endCallback: function() {
 				console.log("end");
 			},
-			outputFormat: 'month|day|hour|minute|second',
+			outputFormat: "month|day|hour|minute|second"
 		});
 		cd.start();
 	}

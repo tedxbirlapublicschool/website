@@ -1,44 +1,37 @@
 {
-  "name": "app",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
-  },
-  "dependencies": {
-    "aos": "^2.3.3",
-    "firebase": "^5.4.2",
-    "firebase-tools": "^4.2.1",
-    "jquery": "^3.3.1",
-    "jquery-color": "^1.0.0",
-    "please-wait": "0.0.5",
-    "register-service-worker": "^1.0.0",
-    "velocity-animate": "^1.5.2",
-    "vue": "^2.5.16",
-    "vue-preload": "^0.1.11",
-    "vue-router": "^3.0.1"
-  },
-  "devDependencies": {
-    "@vue/cli-plugin-eslint": "^3.0.0-rc.5",
-    "@vue/cli-plugin-pwa": "^3.0.0-rc.5",
-    "@vue/cli-service": "^3.0.0-rc.5",
-    "@vue/eslint-config-prettier": "^3.0.0-rc.5",
-    "lint-staged": "^7.2.0",
-    "vue-template-compiler": "^2.5.16"
-  },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
-  "lint-staged": {
-    "*.js": [
-      "vue-cli-service lint",
-      "git add"
-    ],
-    "*.vue": [
-      "vue-cli-service lint",
-      "git add"
-    ]
-  }
+	"name": "app",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"serve": "vue-cli-service serve",
+		"build": "vue-cli-service build",
+		"lint": "vue-cli-service lint"
+	},
+	"dependencies": {
+		"aos": "^2.3.3",
+		"firebase": "^5.4.2",
+		"firebase-tools": "^4.2.1",
+		"please-wait": "0.0.5",
+		"register-service-worker": "^1.0.0",
+		"velocity-animate": "^1.5.2",
+		"vue": "^2.5.16",
+		"vue-preload": "^0.1.11",
+		"vue-router": "^3.0.1"
+	},
+	"devDependencies": {
+		"@vue/cli-plugin-eslint": "^3.0.0-rc.5",
+		"@vue/cli-plugin-pwa": "^3.0.0-rc.5",
+		"@vue/cli-service": "^3.0.0-rc.5",
+		"@vue/eslint-config-prettier": "^3.0.0-rc.5",
+		"lint-staged": "^7.2.0",
+		"vue-template-compiler": "^2.5.16"
+	},
+	"gitHooks": {
+		"pre-commit": "lint-staged"
+	},
+	"lint-staged": {
+		"*.*": [
+			"git add ."
+		]
+	}
 }
