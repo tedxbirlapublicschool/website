@@ -5,10 +5,6 @@
 		The People Behind the TEDxBirlaPublicSchool
 	</h2>
 	<section>
-		<h1>TEDx Licensee | Primary Organizer</h1>
-		<h2>Anand Prakash Sharma | The Principal | Birla Public School</h2>
-	</section>
-	<section>
 		<h1>Core Executives</h1>
 		<section id="corexec">
 		  <member name="Saadiya Rafiq" image="" post="Lead Organizer"/>
