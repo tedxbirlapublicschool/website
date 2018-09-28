@@ -1,19 +1,28 @@
 <template>
-	<div id="timer">
-		<div class="container"></div>
-		<div class="container2">
+	<div id="timer" class="oldWidth">
+		<div id="timer1" class="container"></div>
+		<div id="timer2" class="container2">
 			<h1>Time is running out!<br>Reserve your seats!</h1>
 			<button v-on:click="qtickets">Get Tickets</button>
 		</div>
+		<iframe id="iframeID" class="w3-container w3-hide w3-center" :src="youtube"></iframe>
 	</div>
 </template>
 <script>
 export default {
 	name: "Timer",
-	props: ["date", "month", "year"],
+	props: ["date", "month", "year", "youtube"],
 	methods: {
 		qtickets() {
 			window.location = "https://www.q-tickets.com/eventslist.aspx";
+		},
+		timerEnd() {
+			document.getElementById("timer1").classList.add("w3-hide");
+			document.getElementById("timer2").classList.add("w3-hide");
+			document.getElementById("timer").classList.add("newWidth");
+			document.getElementById("timer").classList.remove("oldWidth");
+			document.getElementById("iframeID").classList.remove("w3-hide");
+			document.getElementById("iframeID").classList.add("w3-animate-zoom");
 		}
 	},
 	mounted: function() {
@@ -437,7 +446,12 @@ export default {
 				second: 0
 			},
 			endCallback: function() {
-				console.log("end");
+				document.getElementById("timer1").classList.add("w3-hide");
+				document.getElementById("timer2").classList.add("w3-hide");
+				document.getElementById("timer").classList.add("newWidth");
+				document.getElementById("timer").classList.remove("oldWidth");
+				document.getElementById("iframeID").classList.remove("w3-hide");
+				document.getElementById("iframeID").classList.add("w3-animate-zoom");
 			},
 			outputFormat: "month|day|hour|minute|second"
 		});
@@ -449,9 +463,15 @@ export default {
 @import url("https://fonts.googleapis.com/css?family=Oswald");
 #timer {
 	width: 100vw;
-	height: 60vh;
 	background-color: #181818;
 	text-align: center;
+}
+
+.newWidth {
+	height: 90vh;
+}
+.oldWidth {
+	height: 60vh;
 }
 
 .container {
@@ -461,6 +481,12 @@ export default {
 	min-width: 650px;
 	top: 50%;
 	transform: translateY(-50%);
+}
+
+#iframeID {
+	width: 100vw;
+	height: 90vh;
+	z-index: 9999;
 }
 
 .container2 {

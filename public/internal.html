@@ -1,0 +1,334 @@
+<html>
+
+	<head>
+		<title>Internal Systems</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<meta name="msapplication-TileColor" content="#ad0000">
+		<meta name="msapplication-TileImage" content="/ico/ms-icon-144x144.png">
+		<meta name="theme-color" content="#ad0000">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<link rel="icon" href="/ico/favicon.ico">
+		<link rel="apple-touch-icon" sizes="57x57" href="/ico/apple-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="/ico/apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="/ico/apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="/ico/apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="/ico/apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="/ico/apple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="/ico/apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="/ico/apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="/ico/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192" href="/ico/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/ico/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="/ico/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/ico/favicon-16x16.png">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
+		<script src="/internal.js"></script>
+	</head>
+
+	<body>
+		<style>
+			/* The snackbar - position it at the bottom and in the middle of the screen */
+
+			#snackbar {
+				visibility: hidden;
+				/* Hidden by default. Visible on click */
+				min-width: 250px;
+				/* Set a default minimum width */
+				margin-left: -125px;
+				/* Divide value of min-width by 2 */
+				background-color: #333;
+				/* Black background color */
+				color: #fff;
+				/* White text color */
+				text-align: center;
+				/* Centered text */
+				border-radius: 2px;
+				/* Rounded borders */
+				padding: 16px;
+				/* Padding */
+				position: fixed;
+				/* Sit on top of the screen */
+				z-index: 1;
+				/* Add a z-index if needed */
+				left: 50%;
+				/* Center the snackbar */
+				bottom: 30px;
+				/* 30px from the bottom */
+			}
+
+			/* Show the snackbar when clicking on a button (class added with JavaScript) */
+
+			#snackbar.show {
+				visibility: visible;
+				/* Show the snackbar */
+				/* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+   However, delay the fade out process for 2.5 seconds */
+				-webkit-animation: fadein 0.5s, fadeout 0.5s 4.5s;
+				animation: fadein 0.5s, fadeout 0.5s 4.5s;
+			}
+
+			/* Animations to fade the snackbar in and out */
+
+			@-webkit-keyframes fadein {
+				from {
+					bottom: 0;
+					opacity: 0;
+				}
+				to {
+					bottom: 30px;
+					opacity: 1;
+				}
+			}
+
+			@keyframes fadein {
+				from {
+					bottom: 0;
+					opacity: 0;
+				}
+				to {
+					bottom: 30px;
+					opacity: 1;
+				}
+			}
+
+			@-webkit-keyframes fadeout {
+				from {
+					bottom: 30px;
+					opacity: 1;
+				}
+				to {
+					bottom: 0;
+					opacity: 0;
+				}
+			}
+
+			@keyframes fadeout {
+				from {
+					bottom: 30px;
+					opacity: 1;
+				}
+				to {
+					bottom: 0;
+					opacity: 0;
+				}
+			}
+
+			.w3-theme-l5 {
+				color: #000 !important;
+				background-color: #ffe8e8 !important
+			}
+
+			.w3-theme-l4 {
+				color: #000 !important;
+				background-color: #ffb3b3 !important
+			}
+
+			.w3-theme-l3 {
+				color: #fff !important;
+				background-color: #ff6666 !important
+			}
+
+			.w3-theme-l2 {
+				color: #fff !important;
+				background-color: #ff1a1a !important
+			}
+
+			.w3-theme-l1 {
+				color: #fff !important;
+				background-color: #cc0000 !important
+			}
+
+			.w3-theme-d1 {
+				color: #fff !important;
+				background-color: #730000 !important
+			}
+
+			.w3-theme-d2 {
+				color: #fff !important;
+				background-color: #660000 !important
+			}
+
+			.w3-theme-d3 {
+				color: #fff !important;
+				background-color: #590000 !important
+			}
+
+			.w3-theme-d4 {
+				color: #fff !important;
+				background-color: #4d0000 !important
+			}
+
+			.w3-theme-d5 {
+				color: #fff !important;
+				background-color: #400000 !important
+			}
+
+			.w3-theme-light {
+				color: #000 !important;
+				background-color: #ffe8e8 !important
+			}
+
+			.w3-theme-dark {
+				color: #fff !important;
+				background-color: #400000 !important
+			}
+
+			.w3-theme-action {
+				color: #fff !important;
+				background-color: #400000 !important
+			}
+
+			.w3-theme {
+				color: #fff !important;
+				background-color: #800000 !important
+			}
+
+			.w3-text-theme {
+				color: #800000 !important
+			}
+
+			.w3-border-theme {
+				border-color: #800000 !important
+			}
+
+			.w3-hover-theme:hover {
+				color: #fff !important;
+				background-color: #800000 !important
+			}
+
+			.w3-hover-text-theme:hover {
+				color: #800000 !important
+			}
+
+			.w3-hover-border-theme:hover {
+				border-color: #800000 !important
+			}
+
+		</style>
+		<header class="w3-container w3-theme">
+			<button id="button-back" class="w3-button w3-section w3-theme-d4 w3-ripple w3-hide w3-left" onclick="back(); return false;">Back</button>
+			<button id="button-logout" class="w3-button w3-section w3-theme-d4 w3-ripple w3-hide w3-right" onclick="logout(); return false;">Logout</button>
+			<h1 id="header-title" class="w3-center">Sign In</h1>
+		</header>
+		<div id="login" class="w3-container">
+			<div class="w3-container w3-margin-top" style="width: 650px; margin: auto;">
+				<form class="w3-container w3-card-4">
+					<p>
+						<input id="login-email" class="w3-input" type="email" style="width:100%" required>
+						<label>Email</label>
+					</p>
+					<p>
+						<input id="login-pass" class="w3-input" type="password" style="width:100%" required>
+						<label>Password</label>
+					</p>
+					<p>
+						<button class="w3-button w3-section w3-theme-d4 w3-ripple" onclick="signIn(); return false;">Submit</button>
+					</p>
+				</form>
+			</div>
+		</div>
+		<div id="loggedIn" class="w3-container w3-hide">
+			<div id="a-1" class="w3-container w3-margin-top" style="width: 650px; margin: auto;">
+				<form class="w3-container w3-card-4">
+					<p>
+						<input id="a-1-radio1" class="w3-radio" type="radio" name="selection1" value="add" checked>
+						<label>Register Q-Ticket</label>
+					</p>
+					<p>
+						<input id="a-1-radio2" class="w3-radio" type="radio" name="selection1" value="retrieve">
+						<label>Register Other Ticket</label>
+					</p>
+					<p>
+						<input id="a-1-radio3" class="w3-radio" type="radio" name="selection1" value="retrieve">
+						<label>Retireve Ticket</label>
+					</p>
+					<p>
+						<button class="w3-button w3-section w3-theme-d4 w3-ripple" onclick="modeSelect(); return false;">Submit</button>
+					</p>
+				</form>
+			</div>
+			<div id="a-1-1" class="w3-container w3-margin-top w3-hide" style="width: 650px; margin: auto;">
+				<form class="w3-container w3-card-4">
+					<p>
+						<input id="a-1-1-name" class="w3-input" type="text" style="width:100%" required>
+						<label>Name</label>
+					</p>
+					<p>
+						<input id="a-1-1-email" class="w3-input" type="email" style="width:100%" required>
+						<label>Email</label>
+					</p>
+					<p>
+						<input id="a-1-1-mobile" class="w3-input" type="number" style="width:100%" required>
+						<label>Mobile</label>
+					</p>
+					<p>
+						<input id="a-1-1-qticket" class="w3-input" type="text" style="width:100%" required>
+						<label>Q-Ticket ID</label>
+					</p>
+					<p>
+						<input id="a-1-1-radio1" class="w3-radio" type="radio" name="selection1-1" value="regular" checked>
+						<label>Regular</label>
+					</p>
+					<p>
+						<input id="a-1-1-radio2" class="w3-radio" type="radio" name="selection1-1" value="student">
+						<label>Student</label>
+					</p>
+					<p>
+						<button class="w3-button w3-section w3-theme-d4 w3-ripple" onclick="qticketRegister(); return false;">Register</button>
+					</p>
+				</form>
+			</div>
+			<div id="a-2-1" class="w3-container w3-margin-top w3-hide" style="width: 650px; margin: auto;">
+				<form class="w3-container w3-card-4">
+					<p>
+						<input id="a-2-1-name" class="w3-input" type="text" style="width:100%" required>
+						<label>Ticket ID</label>
+					</p>
+					<p>
+						<input id="a-2-1-email" class="w3-input" type="email" style="width:100%" required>
+						<label>Email</label>
+					</p>
+					<p>
+						<input id="a-2-1-mobile" class="w3-input" type="number" style="width:100%" required>
+						<label>Mobile</label>
+					</p>
+					<p>
+						<input id="a-2-1-radio1" class="w3-radio" type="radio" name="selection3" value="male" checked>
+						<label>Regular</label>
+					</p>
+					<p>
+						<input id="a-2-1-radio2" class="w3-radio" type="radio" name="selection3" value="female">
+						<label>Student</label>
+					</p>
+					<p>
+						<input id="a-2-1-radio3" class="w3-radio" type="radio" name="selection3" value="female">
+						<label>Teacher</label>
+					</p>
+					<p>
+						<input id="a-2-1-radio4" class="w3-radio" type="radio" name="selection3" value="female">
+						<label>Invitee</label>
+					</p>
+					<p>
+						<button class="w3-button w3-section w3-theme-d4 w3-ripple" onclick="ticketRegister(); return false;">Register</button>
+					</p>
+				</form>
+			</div>
+			<div id="a-3-1" class="w3-container w3-margin-top w3-hide" style="width: 650px; margin: auto;">
+				<form class="w3-container w3-card-4">
+					<p>
+						<input id="a-3-1-name" class="w3-input" type="text" style="width:100%" required>
+						<label>Ticket ID</label>
+					</p>
+					<p>
+						<button class="w3-button w3-section w3-theme-d4 w3-ripple" onclick="ticketRetrieve(); return false;">Retirieve</button>
+					</p>
+				</form>
+			</div>
+		</div>
+		<div id="snackbar"></div>
+	</body>
+
+</html>

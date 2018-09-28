@@ -8,6 +8,7 @@
 		"lint": "vue-cli-service lint"
 	},
 	"dependencies": {
+		"@google-cloud/storage": "^2.0.3",
 		"aos": "^2.3.3",
 		"firebase": "^5.4.2",
 		"firebase-tools": "^4.2.1",

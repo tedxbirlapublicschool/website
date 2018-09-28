@@ -8,7 +8,7 @@
 			</div>
 		</div>
 		<tedx></tedx>
-		<Timer :date="date" :month="monthNum" :year="year"></Timer>
+		<Timer :date="date" :month="monthNum" :year="year" :youtube="youtube"></Timer>
 	</div>
 </template>
 
@@ -38,6 +38,7 @@ export default {
 			loc1: "",
 			loc2: "",
 			monthNum: 0,
+			youtube: "",
 			dataReceived: null
 		};
 	},
@@ -94,6 +95,7 @@ export default {
 					}
 					vm.loc1 = homeData.locLine1;
 					vm.loc2 = homeData.locLine2;
+					vm.youtube = homeData.youtube;
 					document.getElementById("app").style.display = "block";
 					vm.dataReceived = "true";
 					AOS.init();
