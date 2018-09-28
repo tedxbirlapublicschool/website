@@ -25,6 +25,7 @@
 		<link rel="icon" type="image/png" sizes="16x16" href="/ico/favicon-16x16.png">
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 		<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
+		<script src="/qrcode.min.js"></script>
 		<script src="/internal.js"></script>
 	</head>
 
@@ -208,7 +209,7 @@
 			}
 
 		</style>
-		<header class="w3-container w3-theme">
+		<header id="header" class="w3-container w3-theme">
 			<button id="button-back" class="w3-button w3-section w3-theme-d4 w3-ripple w3-hide w3-left" onclick="back(); return false;">Back</button>
 			<button id="button-logout" class="w3-button w3-section w3-theme-d4 w3-ripple w3-hide w3-right" onclick="logout(); return false;">Logout</button>
 			<h1 id="header-title" class="w3-center">Sign In</h1>
@@ -253,31 +254,43 @@
 			<div id="a-1-1" class="w3-container w3-margin-top w3-hide" style="width: 650px; margin: auto;">
 				<form class="w3-container w3-card-4">
 					<p>
-						<input id="a-1-1-name" class="w3-input" type="text" style="width:100%" required>
-						<label>Name</label>
-					</p>
-					<p>
-						<input id="a-1-1-email" class="w3-input" type="email" style="width:100%" required>
-						<label>Email</label>
-					</p>
-					<p>
-						<input id="a-1-1-mobile" class="w3-input" type="number" style="width:100%" required>
-						<label>Mobile</label>
-					</p>
-					<p>
 						<input id="a-1-1-qticket" class="w3-input" type="text" style="width:100%" required>
 						<label>Q-Ticket ID</label>
 					</p>
 					<p>
-						<input id="a-1-1-radio1" class="w3-radio" type="radio" name="selection1-1" value="regular" checked>
+						<input id="a-1-1-regular" class="w3-input" type="number" name="numRegular" value="regular" checked>
 						<label>Regular</label>
 					</p>
 					<p>
-						<input id="a-1-1-radio2" class="w3-radio" type="radio" name="selection1-1" value="student">
+						<input id="a-1-1-student" class="w3-input" type="number" name="numStudent" value="student">
 						<label>Student</label>
 					</p>
 					<p>
-						<button class="w3-button w3-section w3-theme-d4 w3-ripple" onclick="qticketRegister(); return false;">Register</button>
+						<button class="w3-button w3-section w3-theme-d4 w3-ripple" onclick="qticketRegister1(); return false;">Submit</button>
+					</p>
+				</form>
+			</div>
+			<div id="a-1-2" class="w3-container w3-margin-top w3-hide" style="width: 650px; margin: auto;">
+				<form class="w3-container w3-card-4">
+					<p id="a-1-2-type" class="w3-center w3-large">Ticket Type</p>
+					<p>
+						<input id="a-1-2-name" class="w3-input" type="text" style="width:100%" required>
+						<label>Name</label>
+					</p>
+					<p>
+						<input id="a-1-2-email" class="w3-input" type="email" style="width:100%" required>
+						<label>Email</label>
+					</p>
+					<p>
+						<input id="a-1-2-mobile" class="w3-input" type="number" style="width:100%" required>
+						<label>Mobile</label>
+					</p>
+					<p>
+						<input id="a-1-2-qticket" class="w3-input" type="text" style="width:100%" required disabled>
+						<label>Q-Ticket ID</label>
+					</p>
+					<p>
+						<button class="w3-button w3-section w3-theme-d4 w3-ripple" onclick="qticketRegister2(); return false;">Register</button>
 					</p>
 				</form>
 			</div>
@@ -285,7 +298,7 @@
 				<form class="w3-container w3-card-4">
 					<p>
 						<input id="a-2-1-name" class="w3-input" type="text" style="width:100%" required>
-						<label>Ticket ID</label>
+						<label>Name</label>
 					</p>
 					<p>
 						<input id="a-2-1-email" class="w3-input" type="email" style="width:100%" required>
@@ -323,12 +336,13 @@
 						<label>Ticket ID</label>
 					</p>
 					<p>
-						<button class="w3-button w3-section w3-theme-d4 w3-ripple" onclick="ticketRetrieve(); return false;">Retirieve</button>
+						<a class="w3-button w3-section w3-theme-d4 w3-ripple" onclick="ticketRetrieve(); return false;">Retrieve</a>
 					</p>
 				</form>
 			</div>
 		</div>
 		<div id="snackbar"></div>
+		<div id="test" class="w3-hide"></div>
 	</body>
 
 </html>
